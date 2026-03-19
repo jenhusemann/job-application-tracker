@@ -10,7 +10,7 @@ WORKDIR /app/jobtracker
 RUN apt-get update && apt-get install -y maven
 
 # Generate wrapper properly
-RUN mvn -N wrapper
+RUN mvn -N org.apache.maven.plugins:maven-wrapper-plugin:wrapper
 
 # Now use wrapper
 RUN chmod +x mvnw
