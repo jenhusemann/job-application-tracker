@@ -16,4 +16,4 @@ RUN mvn -N org.apache.maven.plugins:maven-wrapper-plugin:wrapper
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["java", "-jar", "target/jobtracker-0.0.1-SNAPSHOT.jar"]
