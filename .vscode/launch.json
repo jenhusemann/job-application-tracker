@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-JobtrackerApplication<jobtracker>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.jobtracker.JobtrackerApplication",
+            "projectName": "jobtracker",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

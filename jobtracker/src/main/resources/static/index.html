@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker API</title>
+
+    <!-- Link to external CSS file-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <!--Page Title-->
+        <h1> Job Tracker</h1>
+
+        <!--Description-->
+        <p class="subtitle"> Organize, track, and manage your job applications in one place.</p>
+        <p class="subtitle">Easily add applications, update statuses, and stay on top of your job search.</p>
+
+        <!--tabs-->
+        <div class="tabs">
+            <button onclick = "showSection('addJobSection')">Add Job</button>
+            <button onclick = "showSection('viewJobsSection')">View Jobs</button>
+        </div>
+
+        <div id="addJobSection">
+
+            <!-- Section title-->
+            <h2> Add job applications</h2>
+            
+            <!-- Form to collect job data-->    
+            <form id="jobForm">
+
+                <label> Company:</label>
+                <input type="text" id="company" required><br><br>
+
+                <label> Job Title:</label>
+                <input type="text" id="jobTitle" required><br><br>
+
+                <label> Location:</label>
+                <input type="text" id="location"><br><br>
+
+                <label> Where did you apply?</label><br>
+                <select id="source">
+                    <option value="LINKEDIN">LinkedIn</option>
+                    <option value="INDEED">Indeed</option>
+                    <option value="COMPANY_WEBSITE">Company Website</option>
+                    <option value="REFERRAL">Referral</option>
+                    <option value="OTHER">Other</option>
+                </select><br><br>
+                <!-- Hidden input(only show if "Other" is selected)-->
+                <div id="sourceOtherContainer" style="display: none;">
+                    <label> Please specify:</label>
+                    <input type="text" id="sourceOTHER"><br><br>
+                </div>
+
+                <label> Date Applied:</label>
+                <input type="date" id="dateApplied" required><br><br>
+
+                <label>Status:</label><br>
+                <select id="status">
+                     <option value="APPLIED">Applied</option>
+                    <option value="INTERVIEW">Interview</option>
+                    <option value="UNDER_REVIEW">Under Review</option>
+                    <option value="OFFER">Offer</option>
+                    <option value="REJECTED">Rejected</option>
+                    <option value="WITHDREW">Withdrew</option>
+                </select><br><br>
+        
+                <label>Job Link:</label><br>
+                <input type="url" id="jobLink"><br><br>
+
+                <label>Follow-Up Date:</label><br>
+                <input type="date" id="followUpDate"><br><br>
+
+                <label>Notes:</label><br>
+                <textarea id="notes" placeholder="Enter any other notes about this job application..."></textarea><br><br>
+
+                <button type="submit" id="submitButton">Submit </button >
+                <button type="button" id="cancelButton" Style="display:none;" onclick="cancelEdit()">Cancel Edit</button>
+            </form>
+
+            <!--Message will show success or error messages-->
+            <p id="message"></p>
+
+        </div>
+
+        <!-- View Jobs Section -->
+        <div id="viewJobsSection" style="display: none;">
+            <h2>View all job applications</h2>
+            
+            <table id="jobsTable">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Job Title</th>
+                        <th>Location</th>
+                        <th>Source</th>
+                        <th>Date Applied</th>
+                        <th>Status</th>
+                        <th>Job Link</th>
+                        <th>Follow-Up Date</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="jobsTableBody">
+                    <!-- Job entries will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- Link to external JavaScript file-->
+    <script src="script.js"></script>
+
+</body>
+</html>
+
