@@ -1,3 +1,5 @@
+const API_URL = "https://job-application-tracker-s1eu.onrender.com";
+
 //Switching tabs
     function showSection(sectionId) {
 
@@ -48,8 +50,8 @@ document.getElementById('jobForm').addEventListener("submit", function(event) {
 
     //send POST request to backend
     const url = window.currentEditId 
-    ? `http://localhost:8081/api/applications/${window.currentEditId}`
-    : "http://localhost:8081/api/applications";
+    ? `${API_URL}/api/applications/${window.currentEditId}`
+    : `${API_URL}/api/applications`;
 
     const method = window.currentEditId ? "PUT" : "POST";
 
@@ -95,7 +97,7 @@ document.getElementById('jobForm').addEventListener("submit", function(event) {
 
 function loadjobs() {
 
-    fetch("http://localhost:8081/api/applications")
+    fetch(`${API_URL}/api/applications`)
     .then(response => response.json())
     .then(data => {
 
@@ -144,7 +146,7 @@ function formatEnum(value) {
 //Edit job function
 function editJob(id) {
 
-    fetch(`http://localhost:8081/api/applications/${id}`)
+    fetch(`${API_URL}/api/applications/${id}`)
     .then(response => response.json())
     .then(job => {
 
@@ -198,7 +200,7 @@ function cancelEdit() {
 function deleteJob(id) {
 
     if (confirm("Are you sure you want to delete this job?")) {
-        fetch(`http://localhost:8081/api/applications/${id}`, {
+        fetch(`${API_URL}/api/applications/${id}`, {
             method: "DELETE"
         })
         .then(response => {
