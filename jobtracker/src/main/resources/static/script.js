@@ -118,7 +118,9 @@ function loadjobs() {
                 <td>${formatEnum(job.source)}</td>
                 <td>${job.dateApplied || ""}</td>
                 <td>${formatEnum(job.status)}</td>
-                <td><a href="${job.jobLink || '#'}" target="_blank">${job.jobLink || ""}</a></td>
+                <td class="link-cell">
+                    <a href="${job.jobLink}" target="_blank">${job.jobLink ? "Link" : ""}</a>
+                </td>
                 <td>${job.followUpDate || ""}</td>
                 <td>${job.notes || ""}</td>
                 <td>
